@@ -8,7 +8,7 @@ stages:
 - stage: testing
   displayName: Test agent working
   jobs:
-    - job: test build image
+    - job: Test_build_image
       steps:
         - script: docker build -t test-agent .
           displayName: Build Image
