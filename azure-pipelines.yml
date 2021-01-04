@@ -3,14 +3,12 @@ trigger:
 
 pool: 
   name: Default
-  demands:
-    - agent.name -equals Docker-agent
 
 stages:
 - stage: testing
   displayName: Test agent working
   jobs:
-    - job:
+    - job: test build image
       steps:
         - script: docker build -t test-agent .
           displayName: Build Image
