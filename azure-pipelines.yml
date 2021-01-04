@@ -1,0 +1,23 @@
+trigger:
+- main
+
+pool: 
+  name: Default
+  demands:
+    - agent.name -equals Docker-agent
+
+stages:
+- stage: agent-testing
+  displayName: Test agent working
+  jobs:
+    - job:
+      steps:
+        - script: docker build -t test-agent .
+          displayName: Build Image
+        - script: docker image inspect test-agent
+          displayName: Test image generation
+        - script: echo $(variable_testing)
+          displayName: Test env
+        - script: docker rmi test-agent
+          displayName: Delete image
+        
