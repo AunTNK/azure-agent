@@ -7,7 +7,7 @@ pool:
     - agent.name -equals Docker-agent
 
 stages:
-- stage: agent-testing
+- stage: testing
   displayName: Test agent working
   jobs:
     - job:
